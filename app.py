@@ -26,4 +26,4 @@ api.add_resource(VisitorInfo, '/visitorinfo', resource_class_kwargs={'parser': p
 parser.add_argument('visitor_info', type=dict, location='body')
 
 if __name__ == '__main__':
-    app.run(host=os.getenv('APP_HOST', '0.0.0.0'), port=os.getenv('APP_PORT', '8080')
+    app.run(host=os.getenv('APP_HOST', '0.0.0.0'), port=os.getenv('APP_PORT', '8080'))
