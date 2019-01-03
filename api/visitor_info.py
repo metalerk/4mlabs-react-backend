@@ -9,6 +9,7 @@ from utils.mail import send_mail, style_mail
 import json
 import os
 
+
 def fetch_provider(query, provider='ip-api'):
     providers = {
         'ip-api': 'http://ip-api.com/json/{}'.format(query),
