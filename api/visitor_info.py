@@ -19,9 +19,10 @@ def fetch_provider(query, provider='ip-api'):
     return req.get(providers[provider]).json()
 
 class VisitorInfo(Resource):
-    def __init__(self, parser, mongo):
+    def __init__(self, parser, mongo, logger):
         self.parser = parser
         self.db = mongo.db
+        self.logger = logger
 
     @cross_origin(origin='*',headers=['Content-Type'])
     def post(self):
@@ -33,7 +34,7 @@ class VisitorInfo(Resource):
             print(visitor_info)
             record_id = self.db.visitors.insert_one(dict(visitor_info)).inserted_id
             visitor_info['mongodb_id'] = str(record_id)
-            print(visitor_info)
+            self.logger.debug(visitor_info)
 
             send_mail(
                 from_email=os.getenv('EMAIL_USER', ''),
