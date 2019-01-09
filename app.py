@@ -8,10 +8,8 @@ from api.visitor_info import VisitorInfo
 import random
 import string
 import os
-
 import logging
 
-app.logger.debug("Hello World")
 
 app = Flask(__name__)
 api = Api(app)
