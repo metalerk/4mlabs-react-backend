@@ -11,7 +11,7 @@ import os
 
 app = Flask(__name__)
 api = Api(app)
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": "*"}}, methods=["GET", "HEAD", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"])
 
 app.config['DEBUG'] = os.getenv('DEBUG', True)
 app.config['SECRET_KEY'] = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(50))
