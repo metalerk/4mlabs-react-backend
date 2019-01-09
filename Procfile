@@ -1,1 +1,1 @@
-web: gunicorn -w1 --access-logfile - app:app
+web: python3 app.python3

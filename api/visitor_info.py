@@ -30,8 +30,10 @@ class VisitorInfo(Resource):
             visitor_info['location']['data'] = [
                 fetch_provider(provider=visitor_info['location']['provider'], query=x) for x in request.access_route
             ]
+            print(visitor_info)
             record_id = self.db.visitors.insert_one(dict(visitor_info)).inserted_id
             visitor_info['mongodb_id'] = str(record_id)
+            print(visitor_info)
 
             send_mail(
                 from_email=os.getenv('EMAIL_USER', ''),
