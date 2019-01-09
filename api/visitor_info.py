@@ -3,6 +3,7 @@ from flask_restful import Resource
 from flask import jsonify, request
 from bson.json_util import dumps
 import requests as req
+from flask_cors import cross_origin
 
 from utils.mail import send_mail, style_mail
 
@@ -22,6 +23,7 @@ class VisitorInfo(Resource):
         self.parser = parser
         self.db = mongo.db
 
+    @cross_origin(origin='*',headers=['Content-Type'])
     def post(self):
         try:
             visitor_info = request.get_json()
