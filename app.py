@@ -13,7 +13,7 @@ app = Flask(__name__)
 api = Api(app)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
-app.config['DEBUG'] = True
+app.config['DEBUG'] = os.getenv('DEBUG', True)
 app.config['SECRET_KEY'] = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(50))
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['MONGO_URI'] = os.getenv('MONGO_URI', 'mongodb://localhost:27017/test')
