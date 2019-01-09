@@ -48,6 +48,7 @@ class VisitorInfo(Resource):
                 'data': visitor_info,
             })
         except Exception as e:
+            self.logger.debug(e)
             return jsonify({
                 'success': False,
                 'data': [],
