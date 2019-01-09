@@ -40,7 +40,7 @@ class VisitorInfo(Resource):
                 to_email=os.getenv('EMAIL_TO', ''),
                 subject='Visita al sitio!',
                 content=style_mail(title='Registro de visita', track_obj=visitor_info),
-                receiver_name=os.getenv('EMAIL_USER_NAME', ''),
+                receiver_name='Luis Esteban Rodriguez',
             )
 
             return jsonify({
@@ -48,7 +48,7 @@ class VisitorInfo(Resource):
                 'data': visitor_info,
             })
         except Exception as e:
-            self.logger.debug(e)
+            self.logger.debug(str(e))
             return jsonify({
                 'success': False,
                 'data': [],
