@@ -51,5 +51,6 @@ class VisitorInfo(Resource):
             self.logger.debug(str(e))
             return jsonify({
                 'success': False,
+                'reason': str(e),
                 'data': [],
             })
