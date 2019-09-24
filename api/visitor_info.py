@@ -14,7 +14,7 @@ import os
 def fetch_provider(query, provider='ip-api'):
     providers = {
         'ip-api': 'http://ip-api.com/json/{}'.format(query),
-        'ipstack': 'http://api.ipstack.com/{}?access_key={}'.format(query, os.getenv('IPSTACK_API_KEY')),
+        #'ipstack': 'http://api.ipstack.com/{}?access_key={}'.format(query, os.getenv('IPSTACK_API_KEY')),
     }
     return req.get(providers[provider]).json()
 
