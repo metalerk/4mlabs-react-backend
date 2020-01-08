@@ -46,7 +46,10 @@ def send_mail(from_email,
 
     msg_full = message.as_string()
 
-    server = smtplib.SMTP('smtp.gmail.com:587')
+    smtp_server = os.getenv('SMTP_SERVER')
+    smtp_port = os.getenv('SMTP_PORT')
+
+    server = smtplib.SMTP('{}:{}'.format(smtp_server, smtp_port))
     server.starttls()
     server.login(os.getenv('EMAIL_USER', ''), os.getenv('EMAIL_PASSWORD', ''))
     server.sendmail(from_email,
