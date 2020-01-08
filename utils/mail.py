@@ -1,6 +1,6 @@
 import smtplib
 from email.mime.text import MIMEText
-from .algorythms import recursive_keyval
+from .algorithms import recursive_keyval
 
 import os
 
